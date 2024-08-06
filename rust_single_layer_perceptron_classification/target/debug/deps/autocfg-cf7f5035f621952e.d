@@ -1,0 +1,10 @@
+/Users/davidsackler/Documents/Rust Learning/Rust_Classification_With_Single_Layer_Perceptron/rust_single_layer_perceptron_classification/target/debug/deps/libautocfg-cf7f5035f621952e.rmeta: /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/lib.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/error.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/rustc.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/version.rs
+
+/Users/davidsackler/Documents/Rust Learning/Rust_Classification_With_Single_Layer_Perceptron/rust_single_layer_perceptron_classification/target/debug/deps/libautocfg-cf7f5035f621952e.rlib: /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/lib.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/error.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/rustc.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/version.rs
+
+/Users/davidsackler/Documents/Rust Learning/Rust_Classification_With_Single_Layer_Perceptron/rust_single_layer_perceptron_classification/target/debug/deps/autocfg-cf7f5035f621952e.d: /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/lib.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/error.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/rustc.rs /Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/version.rs
+
+/Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/lib.rs:
+/Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/error.rs:
+/Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/rustc.rs:
+/Users/davidsackler/.cargo/registry/src/index.crates.io-6f17d22bba15001f/autocfg-1.3.0/src/version.rs:

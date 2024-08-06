@@ -1,0 +1,8 @@
+[package]
+name = "rust_single_layer_perceptron_classification"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ndarray = "0.15"
+rand = "0.8"

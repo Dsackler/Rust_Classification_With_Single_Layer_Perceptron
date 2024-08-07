@@ -4,6 +4,8 @@ use forward_propagation::forward_propagation;
 use ndarray::array;
 use ndarray::Array2;
 use rand::Rng;
+use rayon::prelude::*;
+use std::time::Instant;
 use structs::Parameters;
 use update_parameters::update_parameters;
 
@@ -34,8 +36,11 @@ fn main() {
     // let update = update_parameters(&params, backward_propagation, 1.2);
     // println!("Original W: {:?}, B: {:?}", params.W, params.b);
     // println!("Updated W: {:?}, B: {:?}", update.W, update.b);
+    let start_time = Instant::now();
     let result = nn_model(&X, &Y, 50, 1.2, true);
+    let elapsed_time = start_time.elapsed();
     println!("{:?}, {:?}", result.W, result.b);
+    println!("Elapsed time: {:.2?} seconds", elapsed_time);
 }
 
 //Create dataset
@@ -82,11 +87,10 @@ fn initialize_params() -> structs::Parameters {
                     b -- bias value set as a vector of shape (n_y, 1)
      */
     let mut rng = rand::thread_rng();
-    let mut W = array![[rng.gen(), rng.gen()]];
-    let mut b = array![[0.0]];
+    let W = array![[rng.gen(), rng.gen()]];
+    let b = array![[0.0]];
 
-    let parameters = structs::Parameters { W: W, b: b };
-    parameters
+    structs::Parameters { W: W, b: b }
 }
 
 fn nn_model(
@@ -105,9 +109,18 @@ fn nn_model(
         parameters = update_parameters(&parameters, grads, learning_rate);
 
         if print_cost {
-            println!("Cost after iteration {n}: {cost}");
+            println!("Cost after iteration {}: {}", n, cost);
         }
     }
+    // (0..num_iterations).into_par_iter().for_each(|n| {
+    //     let A = forward_propagation(X, &parameters);
+    //     let cost = compute_cost(&A, Y);
+    //     let grads = backward_propagation(&A, X, Y);
+    //     parameters = update_parameters(&parameters, grads, learning_rate);
 
+    //     if print_cost {
+    //         println!("Cost after iteration {}: {}", n, cost);
+    //     }
+    // });
     parameters
 }

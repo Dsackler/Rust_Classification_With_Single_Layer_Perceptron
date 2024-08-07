@@ -1,5 +1,4 @@
 use ndarray::Array2;
-use num_traits::Float;
 
 use crate::structs;
 
@@ -13,14 +12,16 @@ pub fn forward_propagation(X: &Array2<f32>, parameters: &structs::Parameters) ->
         A -- The sigmoid function applied to Z (Z is the linear equation WX + b)
     */
 
-    let W = &parameters.W;
-    let b = &parameters.b;
+    // let W = &parameters.W;
+    // let b = &parameters.b;
 
-    let z = W.dot(X) + b;
-    let A = sigmoid(&z);
-    return A;
+    // let z = W.dot(X) + b;
+    // let A = sigmoid(&z);
+
+    sigmoid(&parameters.W.dot(X) + &parameters.b)
+    // return A;
 }
 
-fn sigmoid(z: &Array2<f32>) -> Array2<f32> {
+fn sigmoid(z: Array2<f32>) -> Array2<f32> {
     return z.mapv(|x| 1.0 / (1.0 + (-x).exp()));
 }

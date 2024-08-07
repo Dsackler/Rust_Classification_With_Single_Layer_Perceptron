@@ -155,6 +155,7 @@ name = "rust_single_layer_perceptron_classification"
 version = "0.1.0"
 dependencies = [
  "ndarray",
+ "num-traits",
  "rand",
 ]
 

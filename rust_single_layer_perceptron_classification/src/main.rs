@@ -1,12 +1,14 @@
+use backward_propagation::backward_propagation;
 use forward_propagation::forward_propagation;
 use ndarray::array;
 use ndarray::Array2;
 use rand::Rng;
 
+mod backward_propagation;
 mod compute_cost;
 mod forward_propagation;
 mod layer_size;
-mod parameters_struct;
+mod structs;
 
 fn main() {
     let (X, Y) = create_dataset();
@@ -14,11 +16,17 @@ fn main() {
 
     let params = initialize_params();
     // println!("{:?}", params.W);
-    let A = forward_propagation(X, params);
+    let A = forward_propagation(&X, params);
     // println!("{:?}", A);
 
-    let cost = compute_cost::compute_cost(A, &Y);
-    println!("Cost = {cost}");
+    let cost = compute_cost::compute_cost(&A, &Y);
+    // println!("Cost = {cost}");
+
+    let backward_propagation = backward_propagation(&A, &X, &Y);
+    println!(
+        "{:?}, {:?}",
+        backward_propagation.dW, backward_propagation.dB
+    );
 }
 
 //Create dataset
@@ -54,18 +62,10 @@ pub fn create_dataset() -> (Array2<f32>, Array2<f32>) {
     // Convert y to an ndarray and reshape it to 1xM
     let y = ndarray::Array::from_shape_vec((1, m), y).unwrap();
 
-    // Print the results for verification
-    // println!("X: \n{}", x);
-    // println!("Y: \n{}", y);
     return (x, y);
 }
 
-// struct Parameters {
-//     W: Array2<f64>,
-//     b: Array2<f64>,
-// }
-
-fn initialize_params() -> parameters_struct::Parameters {
+fn initialize_params() -> structs::Parameters {
     /*
     Returns:
     params -- struct containing parameters:
@@ -76,6 +76,6 @@ fn initialize_params() -> parameters_struct::Parameters {
     let W = array![[rng.gen(), rng.gen()]];
     let b = array![[0.0]];
 
-    let parameters = parameters_struct::Parameters { W: W, b: b };
+    let parameters = structs::Parameters { W: W, b: b };
     parameters
 }

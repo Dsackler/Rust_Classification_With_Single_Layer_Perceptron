@@ -1,7 +1,7 @@
 use ndarray::Array2;
 use num_traits::Float;
 
-pub fn compute_cost(A: Array2<f32>, Y: &Array2<f32>) -> f32 {
+pub fn compute_cost(A: &Array2<f32>, Y: &Array2<f32>) -> f32 {
     // Number of examples.
     let m = Y.shape()[1] as f32;
 

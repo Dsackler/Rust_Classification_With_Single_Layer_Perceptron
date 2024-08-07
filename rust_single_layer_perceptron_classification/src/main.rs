@@ -3,6 +3,7 @@ use ndarray::array;
 use ndarray::Array2;
 use rand::Rng;
 
+mod compute_cost;
 mod forward_propagation;
 mod layer_size;
 mod parameters_struct;
@@ -14,7 +15,10 @@ fn main() {
     let params = initialize_params();
     // println!("{:?}", params.W);
     let A = forward_propagation(X, params);
-    println!("{:?}", A);
+    // println!("{:?}", A);
+
+    let cost = compute_cost::compute_cost(A, &Y);
+    println!("Cost = {cost}");
 }
 
 //Create dataset

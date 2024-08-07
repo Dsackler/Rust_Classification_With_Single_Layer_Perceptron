@@ -12,7 +12,6 @@ use update_parameters::update_parameters;
 mod backward_propagation;
 mod compute_cost;
 mod forward_propagation;
-mod layer_size;
 mod structs;
 mod update_parameters;
 

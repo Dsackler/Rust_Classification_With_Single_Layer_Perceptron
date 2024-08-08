@@ -36,7 +36,7 @@ fn main() {
     // println!("Original W: {:?}, B: {:?}", params.W, params.b);
     // println!("Updated W: {:?}, B: {:?}", update.W, update.b);
     let start_time = Instant::now();
-    let result = nn_model(&X, &Y, 50, 1.2, true);
+    let result = nn_model(&X, &Y, 100, 1.2, true);
     let elapsed_time = start_time.elapsed();
     println!("{:?}, {:?}", result.W, result.b);
     println!("Elapsed time: {:.2?} seconds", elapsed_time);
@@ -99,12 +99,23 @@ fn nn_model(
     learning_rate: f32,
     print_cost: bool,
 ) -> structs::Parameters {
+    /*
+    Returns:
+    Parameters -- struct containing updated parameters
+     */
+
+    // Initialize parameters
     let mut parameters = initialize_params();
 
+    //Neural network process
     for n in 0..num_iterations {
+        //start with forward propagation
         let A = forward_propagation(X, &parameters);
+        //compute the cost
         let cost = compute_cost(&A, Y);
+        //then backward propagation
         let grads = backward_propagation(&A, X, Y);
+        //then utilize the gradients to update the parameters
         parameters = update_parameters(&parameters, grads, learning_rate);
 
         if print_cost {

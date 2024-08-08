@@ -1,6 +1,11 @@
 use ndarray::Array2;
 
 pub fn compute_cost(A: &Array2<f32>, Y: &Array2<f32>) -> f32 {
+    /*
+    Returns:
+    The log loss of the yhat that went through the sigmoid function.
+     */
+
     // Number of examples.
     let m = Y.shape()[1] as f32;
 

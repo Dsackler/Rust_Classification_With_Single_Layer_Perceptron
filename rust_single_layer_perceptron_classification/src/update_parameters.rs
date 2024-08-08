@@ -5,6 +5,12 @@ pub fn update_parameters(
     grads: structs::Gradients,
     learning_rate: f32,
 ) -> structs::Parameters {
+    /*
+    Returns:
+    Parameters -- struct containing updated parameters
+        --The parameters are updated by performing gradient descent. (Taking the original value and subtracting the respective partial derivative times the learning rate)
+     */
+
     // let dub = &parameters.W;
     // let be = &parameters.b;
 

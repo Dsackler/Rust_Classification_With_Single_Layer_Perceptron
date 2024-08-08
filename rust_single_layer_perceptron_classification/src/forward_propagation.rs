@@ -23,5 +23,13 @@ pub fn forward_propagation(X: &Array2<f32>, parameters: &structs::Parameters) ->
 }
 
 fn sigmoid(z: Array2<f32>) -> Array2<f32> {
+    /*
+        Argument:
+        z -- A linear function representing yhat = x1w1 + x2w2 + b
+
+        Returns:
+        A float with the sigmoid function applied to it
+    */
+
     return z.mapv(|x| 1.0 / (1.0 + (-x).exp()));
 }
